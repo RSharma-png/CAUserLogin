@@ -28,9 +28,10 @@ public class LoginInteractor implements LoginInputBoundary {
                 loginPresenter.prepareFailView("Incorrect password for \"" + username + "\".");
             }
             else {
-
+                // this is what is mentioned in task 2
                 final User user = userDataAccessObject.get(loginInputData.getUsername());
-
+                // added this line as per task 2.1
+                userDataAccessObject.setCurrentUser(user.getName());
                 final LoginOutputData loginOutputData = new LoginOutputData(user.getName(), false);
                 loginPresenter.prepareSuccessView(loginOutputData);
             }
